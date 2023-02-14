@@ -10,11 +10,12 @@ class EdimonID(Enum):
     '''
     A enum class represents id for all edimons
     '''
-    EDICHU = 1,
+    EDIOT = 1,
     BAOZI = 2,
     JARVIE = 3,
     XIAOJIAOPI = 4,
     XIAOJITUI = 5,
+    XIAODUOYU = 6,
 
 class Edimon(EdMovableObject):
     '''

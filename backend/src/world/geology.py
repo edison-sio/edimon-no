@@ -12,16 +12,14 @@ class EDirection(Enum):
     LEFT = 3
     RIGHT = 4
 
-
-class ELocation:
+class EPosition:
     '''
-    This class represents location in Edimon world.
+    This represents positions in Edimon world.
     '''
-    def __init__(self, x: int, y: int) -> None:
+    def __init__(self, x: int, y: int):
         self.x = x
         self.y = y
     
-
     def move(self, dir: EDirection):
         if dir == EDirection.FRONT:
             self.y -= 1
@@ -37,6 +35,25 @@ class ELocation:
     
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
+
+class ELocationID:
+    ID = -1
+    def __init__(self):
+        self.ID += 1
+
+class ELocation:
+    '''
+    This class represents location in Edimon world.
+    '''
+    def __init__(self, name: str, xs: int, ys: int) -> None:
+        self.poss: list[EPosition] = []
+        for y in ys:
+            for x in xs:
+                self.poss.append(EPosition(x, y))
+        
+    
+
+    
 
 def get_next_location(loc: ELocation, dir: EDirection) -> ELocation:
     x = loc.x

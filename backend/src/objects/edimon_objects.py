@@ -16,7 +16,13 @@ class EObject:
 
 class EStableObject(EObject):
     '''
-    An abstract class inherited by every stable objects in the edimon world.
+    A class inherited by every stable objects in the edimon world.
+    '''
+
+class EAbstractObject(EObject):
+    '''
+    An abstract class inherited by objects that is not physically exists on the map.
+    e.g. Eddex.
     '''
 
 class EMovableObject(EObject):
