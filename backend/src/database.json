@@ -1,0 +1,135 @@
+{
+    "player": {
+        "name": "PanpanSarah", 
+        "gender": "Female"
+    },
+    "edimons": [
+        {
+            "name": "Ediot",
+            "stats": {
+                "hp": 50,
+                "attack": 5,
+                "defense": 3,
+                "speed": 5
+            },
+            "type": "normal"
+        },
+        {
+            "name": "BaoZi",
+            "stats": {
+                "hp": 50,
+                "attack": 5,
+                "defense": 3,
+                "speed": 5
+            },
+            "type": "water"
+        },
+        {
+            "name": "Jarvie",
+            "stats": {
+                "hp": 50,
+                "attack": 5,
+                "defense": 3,
+                "speed": 5
+            },
+            "type": "fire"
+        },
+        {
+            "name": "XiaoJiaoPi",
+            "stats": {
+                "hp": 50,
+                "attack": 5,
+                "defense": 3,
+                "speed": 5
+            },
+            "type": "grass"
+        }
+    ],
+    "locations": [
+        {
+            "name": "location 1",
+            "positions": [
+                {
+                    "x": 0,
+                    "y": 0,
+                    "layer": 1
+                },
+                {
+                    "x": 1,
+                    "y": 0,
+                    "layer": 1
+                },
+                {
+                    "x": 2,
+                    "y": 0,
+                    "layer": 1 
+                },
+                {
+                    "x": 3,
+                    "y": 0,
+                    "layer": 1 
+                },
+                {
+                    "x": 0,
+                    "y": 1,
+                    "layer": 1 
+                },
+                {
+                    "x": 1,
+                    "y": 1,
+                    "layer": 1 
+                },
+                {
+                    "x": 2,
+                    "y": 1,
+                    "layer": 1 
+                },
+                {
+                    "x": 3,
+                    "y": 1,
+                    "layer": 1 
+                },
+                {
+                    "x": 0,
+                    "y": 2,
+                    "layer": 1 
+                },
+                {
+                    "x": 1,
+                    "y": 2,
+                    "layer": 1 
+                },
+                {
+                    "x": 2,
+                    "y": 2,
+                    "layer": 1 
+                },
+                {
+                    "x": 3,
+                    "y": 2,
+                    "layer": 1 
+                },
+                {
+                    "x": 0,
+                    "y": 3,
+                    "layer": 1 
+                },
+                {
+                    "x": 1,
+                    "y": 3,
+                    "layer": 1 
+                },
+                {
+                    "x": 2,
+                    "y": 3,
+                    "layer": 1 
+                },
+                {
+                    "x": 3,
+                    "y": 3,
+                    "layer": 1 
+                }
+            ]
+        }
+    ]
+}

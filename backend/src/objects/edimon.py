@@ -2,7 +2,9 @@
 This file design and implements Edimon class.
 '''
 from enum import Enum
-from edimon_objects import EMovableObject
+from .edimon_objects import EMovableObject
+from game.eid_generator import EIDGenerator
+from world.geology import EPosition
 
 class EdimonStats:
     '''
@@ -16,14 +18,23 @@ class EdimonStats:
         self.attack = attack
         self.defense = defense
         self.speed = speed
+    
+    def to_object(self):
+        return {
+            'hp': self.hp,
+            'attack': self.attack,
+            'defense': self.defense,
+            'speed': self.speed,
+        }
 
 class EdimonType(Enum):
     '''
     Edimon types.
     '''
-    FIRE = 1
-    WATER = 2
-    GRASS = 3
+    FIRE = 'fire'
+    WATER = 'water'
+    GRASS = 'grass'
+    NORMAL = 'normal'
 
 class Edimon:
     '''
@@ -32,10 +43,22 @@ class Edimon:
     def __init__(self, name: str, 
                        stats: EdimonStats, 
                        type_: EdimonType):
+        self.id = EIDGenerator.edimon()
         self.name = name
-        self.hp = stats.hp
-        self.attack = stats.attack
-        self.defense = stats.defense
-        self.speed = stats.speed
+        self.stats = stats
         self.type = type_
+    
+    def get_stats(self) -> dict:
+        return self.stats.to_object()
+
+class EdimonObject(EMovableObject):
+    '''
+    Edimon copy object.
+    '''
+    def __init__(self, edimon: Edimon, pos: EPosition):
+        super(EdimonObject, self).__init__(pos)
+        self.edimon = edimon
+    
+    def get_stats(self) -> dict:
+        return self.edimon.stats()
     

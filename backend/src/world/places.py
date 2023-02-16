@@ -2,33 +2,31 @@
 This file implements classes represent or related to places in Edimon.
 '''
 from objects.edimon_objects import EStableObject, EAbstractObject, EObject
-from world.geology import ELocation
+from world.geology import EDirection, EPosition
 
 
-class EPlace(EStableObject):
+class ELocation:
     '''
-    Representation of places in Edimon world.
+    This class represents location in Edimon world.
     '''
-    def __init__(self, name: str, locs: list[ELocation], spawn: ELocation, objs: list[EObject]):
+    def __init__(self, name: str, positions: EPosition) -> None:
+        # self.poss: list[EPosition] = []
+        # for y in ys:
+        #     for x in xs:
+        #         self.poss.append(EPosition(x, y))
         self.name = name
-        self.locs = locs
-        self.spawn = spawn
-        self.objs = objs
-
-    def connect_places(self) -> list:
-        pass
-
+        self.positions = positions
+        
 class EMap(EAbstractObject):
     '''
     Representation of map includes all available places in Edimon world.
     '''
     def __init__(self):
-        self.places: list[EPlace] = []
+        self.places: list[ELocation] = []
     
-    def add_place(self, place: EPlace):
+    def add_location(self, place: ELocation):
         self.places.append(place)
     
-    def remove_place(self, place_id: int):
+    def remove_location(self, place_id: int):
         place = self.places[place_id]
         self.places.remove(place)
-    

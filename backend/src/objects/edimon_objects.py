@@ -1,16 +1,15 @@
 '''
 This file designed and implement all objects in the edimon world.
 '''
-from abc import ABC, abstractmethod
+# from abc import ABC, abstractmethod
 
-from world.geology import ELocation, EDirection, get_next_location
+from world.geology import EPosition, EDirection, get_next_position
 
 class EObject:
     '''
     The base abstract class inherited by every objects in the edimon world.
     '''
-    @abstractmethod
-    def location(self) -> ELocation:
+    def location(self) -> EPosition:
         pass
 
 
@@ -29,16 +28,14 @@ class EMovableObject(EObject):
     '''
     An abstract class inherited by every movable objects in the edimon world.
     '''
-    def __init__(self, map: list[ELocation]):
-        self.loc = map[0]
-        self.map = map
+    def __init__(self, pos: EPosition):
+        self.pos = pos
     
     def change_map(self, map):
-        self.loc = map[0]
+        self.pos = map[0]
         self.map = map
     
     def move(self, dir: EDirection):
-        next_loc = get_next_location(self.loc, dir)
-        if next_loc not in self.map:
-            return
-        self.loc.move(dir)
+        next_pos = get_next_position(self.pos, dir)
+        if (next_pos.layer - self.pos.layer) <= 0.5:
+            self.pos.move(dir)

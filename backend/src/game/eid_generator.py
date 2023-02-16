@@ -1,4 +1,4 @@
-from eid import ELocationID, EdimonID, _ECounter
+from .eid import ELocationID, EdimonID, _ECounter
 
 class EIDGenerator:
     @staticmethod

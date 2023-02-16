@@ -3,7 +3,7 @@ This file implement class Player play about
 '''
 from objects.edimon import Edimon
 from objects.edimon_objects import EMovableObject
-from world.geology import EDirection
+from world.geology import EDirection, EPosition
 
 class EPlayerBag:
     '''
@@ -31,7 +31,6 @@ class EPlayerBag:
         self.edimons.remove(edimon)
         
 
-
 class EPlayerProfile:
     '''
     Player profile to store player details.
@@ -45,6 +44,7 @@ class EPlayer(EMovableObject):
     '''
     The player class.
     '''
-    def __init__(self, name: str, gender: str):
+    def __init__(self, name: str, gender: str, pos: EPosition):
+        super(EPlayer, self).__init__(pos)
         self.profile = EPlayerProfile(name, gender)
         self.bag = EPlayerBag()

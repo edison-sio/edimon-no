@@ -7,18 +7,19 @@ class EDirection(Enum):
     '''
     An enum represents direction in Edimon world.
     '''
-    FRONT = 1
-    BACK = 2
-    LEFT = 3
-    RIGHT = 4
+    FRONT = 'up'
+    BACK = 'down'
+    LEFT = 'left'
+    RIGHT = 'right'
 
 class EPosition:
     '''
     This represents positions in Edimon world.
     '''
-    def __init__(self, x: int, y: int):
+    def __init__(self, x: int, y: int, layer: int=0):
         self.x = x
         self.y = y
+        self.layer = layer
     
     def move(self, dir: EDirection):
         if dir == EDirection.FRONT:
@@ -29,6 +30,9 @@ class EPosition:
             self.x -= 1
         elif dir == EDirection.RIGHT:
             self.x += 1
+        
+    def set_layer(self, layer: int): 
+        self.layer = layer
     
     def __str__(self):
         return f'({self.x}, {self.y})'
@@ -36,26 +40,7 @@ class EPosition:
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
 
-class ELocationID:
-    ID = -1
-    def __init__(self):
-        self.ID += 1
-
-class ELocation:
-    '''
-    This class represents location in Edimon world.
-    '''
-    def __init__(self, name: str, xs: int, ys: int) -> None:
-        self.poss: list[EPosition] = []
-        for y in ys:
-            for x in xs:
-                self.poss.append(EPosition(x, y))
-        
-    
-
-    
-
-def get_next_location(loc: ELocation, dir: EDirection) -> ELocation:
+def get_next_position(loc: EPosition, dir: EDirection) -> EPosition:
     x = loc.x
     y = loc.y
     if dir == EDirection.FRONT:
@@ -66,4 +51,5 @@ def get_next_location(loc: ELocation, dir: EDirection) -> ELocation:
         x -= 1
     elif dir == EDirection.RIGHT:
         x += 1
-    return ELocation(x, y)
+    return EPosition(x, y)
+
