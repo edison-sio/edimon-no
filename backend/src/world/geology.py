@@ -12,6 +12,12 @@ class EDirection(Enum):
     LEFT = 'left'
     RIGHT = 'right'
 
+class EPositionValue(Enum):
+    GRASS = 'grass'
+    STONE = 'stone'
+    WALL = 'wall'
+
+
 class EPosition:
     '''
     This represents positions in Edimon world.
@@ -35,7 +41,7 @@ class EPosition:
         self.layer = layer
     
     def __str__(self):
-        return f'({self.x}, {self.y})'
+        return f'({self.x}, {self.y}, {self.layer})'
     
     def __eq__(self, other):
         return self.x == other.x and self.y == other.y
@@ -53,3 +59,5 @@ def get_next_position(loc: EPosition, dir: EDirection) -> EPosition:
         x += 1
     return EPosition(x, y)
 
+def position_compare_key(pos: EPosition):
+    return pos.x, pos.y, pos.layer

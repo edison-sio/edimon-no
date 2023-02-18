@@ -45,6 +45,14 @@
             "type": "grass"
         }
     ],
+    "places": [
+        {
+            "name": "place A",
+            "xs": 10,
+            "ys": 10,
+            "locations": ["location 1"]
+        }
+    ],
     "locations": [
         {
             "name": "location 1",
